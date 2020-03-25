@@ -102,7 +102,8 @@ async function main() {
     }
 
 async function send_mailing_plain(sender, receivers, subject, message, user, pass, host, port) {
-    const delay = 2 * 1000
+  // TODO: show progress and handle promise rejection  
+  const delay = 2 * 1000
 
     receivers.forEach((receiver, i) => {
         setTimeout(() => {
@@ -141,6 +142,7 @@ function get_receivers_from_csv(filePath) {
 }
 
 function get_config() {
+  // TODO: error handling
   const config = require("../config.json");
   return config;
 }

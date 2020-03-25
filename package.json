@@ -1,0 +1,16 @@
+{
+  "name": "mail-cli",
+  "version": "1.0.0",
+  "description": "command line mailing program",
+  "main": "main.js",
+  "author": "fkropfhamer <fabian.kropfhamer@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "nodemailer": "^6.4.6"
+  },
+  "scripts": {
+    "run": "node src/main.js"
+  }
+}

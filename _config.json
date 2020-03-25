@@ -1,0 +1,8 @@
+{
+	"smtp": "smtp.example.com",
+	"email": "test@example.com",
+	"password": "your Pasword",
+	"port": 587,
+	"sender": "Your Name",
+	"testReceiver": "test@example.com"
+}

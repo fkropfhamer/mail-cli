@@ -97,17 +97,40 @@ async function main() {
         text: message, // plain text body
       });
     
-      console.log("Message sent: %s", info.messageId);
+      // console.log(`Sending mail to ${receivers}`);
       // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
     }
 
 async function send_mailing_plain(sender, receivers, subject, message, user, pass, host, port) {
   // TODO: show progress and handle promise rejection  
-  const delay = 2 * 1000
+  const delay = 2 * 1000;
+  const numEmailsToSend = receivers.length;
+
+  let emailsSend = 0;
+  let emailsFailed = 0;
+
+  const failedReceivers = [];
 
     receivers.forEach((receiver, i) => {
         setTimeout(() => {
-            send_mail_plain(sender, receiver, subject, message, user, pass, host, port);
+            console.log(`sending ${i+1} of ${numEmailsToSend}`)   
+            send_mail_plain(sender, receiver, subject, message, user, pass, host, port).then(() => {
+              console.log(`email to ${receiver} send`);
+              emailsSend += 1;
+            }).catch(() => {
+              console.log(`sending email to ${receiver} failed`);
+              emailsFailed += 1;
+              failedReceivers.push(receiver);
+            }).finally(() => {
+              if (emailsFailed + emailsSend === numEmailsToSend) {
+                console.log("process finished");
+                console.log(`${emailsSend} emails send`);
+                console.log(`${emailsFailed} emails failed`);
+                if (failedReceivers.length > 0) {
+                  console.log(`failed Receivers: ${failedReceivers}`);
+                }
+              }
+            });
         }, i * delay);
         
     })
@@ -115,7 +138,8 @@ async function send_mailing_plain(sender, receivers, subject, message, user, pas
 
 function test_mail(message, subject) {
   const config = get_config();
-  send_mail_plain(config.sender, config.testReceiver, subject, message, config.email, config.password, config.smtp, config.port)
+  console.log(`sending test message to ${config.testReceiver}`);
+  send_mail_plain(config.sender, config.testReceiver, subject, message, config.email, config.password, config.smtp, config.port);
 }
 
 function mailing(message, subject, receivers) {

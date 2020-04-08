@@ -171,4 +171,4 @@ function get_config() {
   return config;
 }
     
-  main().catch(console.error);
+main().catch(console.error);

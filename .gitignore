@@ -3,5 +3,7 @@
 __pycache__
 
 /config.json
+/*.csv
+/*.txt
 
 node_modules

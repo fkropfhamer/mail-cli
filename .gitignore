@@ -2,9 +2,6 @@
 .DS_Store
 __pycache__
 
-config.json
+/config.json
 
 node_modules
-
-files
-

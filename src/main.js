@@ -69,7 +69,7 @@ function send_mail_plain(sender, receivers, subject, message, user, pass, host, 
     }
   });
 
-  transporter.sendMail({
+  return transporter.sendMail({
     from: `"${sender}" <${user}>`, // sender address
     to: receivers, // list of receivers
     subject, // Subject line

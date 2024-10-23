@@ -1,6 +1,6 @@
 # Command line mailing program
 
-- requires: node, yarn
+- requires: node
 
 * -h HELP!!!
 * -m [path to msg.txt]
@@ -11,6 +11,5 @@
 
 ### Getting started 
 
-- `yarn`
-- replace content in `_config.json` and rename to `config.json`
+- `npm i`
 - use like `node src/main -h`

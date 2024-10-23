@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const minimist = require('minimist');

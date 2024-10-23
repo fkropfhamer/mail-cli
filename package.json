@@ -6,6 +6,9 @@
   "author": "fkropfhamer <fabian.kropfhamer@gmail.com>",
   "license": "MIT",
   "private": false,
+  "bin": {
+    "mail-cli": "./src/main.js"
+  },
   "dependencies": {
     "minimist": "^1.2.5",
     "nodemailer": "^6.4.6"

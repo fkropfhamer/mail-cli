@@ -10,8 +10,8 @@
     "mail-cli": "./src/main.js"
   },
   "dependencies": {
-    "minimist": "^1.2.5",
-    "nodemailer": "^6.4.6"
+    "minimist": "^1.2.8",
+    "nodemailer": "^6.9.15"
   },
   "scripts": {
     "start": "node src/main.js"
